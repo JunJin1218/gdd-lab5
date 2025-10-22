@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e49260559b5d06408a841b1d8330f51, type: 3}
+  m_Name: DashState
+  m_EditorClassIdentifier: 
+  setupActions:
+  - {fileID: 11400000, guid: 5c055290f3a89f64f92eeb34ab9b6384, type: 2}
+  - {fileID: 11400000, guid: cb06f88ad40a4f84d9283bd33c876c6a, type: 2}
+  actions: []
+  eventTriggeredActions: []
+  exitActions: []
+  transitions:
+  - decision: {fileID: 11400000, guid: 30f812c209c02ad4eb72667b6c23d674, type: 2}
+    trueState: {fileID: 11400000, guid: bf2fbc28eadfda948991f7475aa8e2cb, type: 2}
+    falseState: {fileID: 11400000, guid: 7d5dca53b10c33b4aafa94636d3a5ab5, type: 2}
+  - decision: {fileID: 11400000, guid: 54fe4375b1df4f44a9bc7fe5734b7f96, type: 2}
+    trueState: {fileID: 11400000, guid: 1822c80509f96b741bc9102861a6b4df, type: 2}
+    falseState: {fileID: 11400000, guid: 7d5dca53b10c33b4aafa94636d3a5ab5, type: 2}
+  sceneGizmoColor: {r: 0.95437497, g: 1, b: 0.2924527, a: 1}
