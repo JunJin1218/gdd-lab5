@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143f07a217fa3e14f933df132a9cee0c, type: 3}
   m_Name: DashPowerUpSFXEvent
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 11400000, guid: 1a5ff400f05d5294e9d99955ba676216, type: 2}

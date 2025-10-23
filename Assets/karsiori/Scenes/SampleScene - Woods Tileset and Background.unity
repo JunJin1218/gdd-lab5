@@ -258,11 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce166120445aa7843afcc2992de26374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmClip: {fileID: 8300000, guid: 31d05d01926382c4c83fe8c8e430fd78, type: 3}
-  volume: 1
-  loop: 1
-  persistAcrossScenes: 1
-  src: {fileID: 0}
 --- !u!82 &178428502
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2613,7 +2608,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  pickupSfx: {fileID: 11400000, guid: dcf9bd7c4d15f7a47aff29e356bbc88e, type: 2}
+  pickupSfxEvent: {fileID: 11400000, guid: ec6a8b0343588d4408c4a78e5b83bef4, type: 2}
 --- !u!1 &1479014584
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,9 +3035,9 @@ MonoBehaviour:
     m_Bits: 8
   gameVariables: {fileID: 11400000, guid: ce3db07d3dbbb6d4d8f579c49b988e8a, type: 2}
   playerPosition: {fileID: 11400000, guid: 9b5eb066c8f48034fa89a1dadc7ec148, type: 2}
-  jumpSfx: {fileID: 11400000, guid: 8a96f8bcf8446ae41bded709b9867c61, type: 2}
-  dashSfx: {fileID: 11400000, guid: 0a64d8b76c968824ca47b1c071b25303, type: 2}
-  bgm: {fileID: 11400000, guid: ab213f7809f621a43bf858a0606857b7, type: 2}
+  jumpSfxEvent: {fileID: 11400000, guid: 68c0956ac3ae3b94e86df6fb8d551cd7, type: 2}
+  dashSfxEvent: {fileID: 0}
+  bgmEvent: {fileID: 11400000, guid: 139d823c398176c40b8b85bcf715cb28, type: 2}
 --- !u!114 &1491908897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3309,6 +3304,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  damageSfxEvent: {fileID: 11400000, guid: f1fb36733a20efe488003cf1bc986f47, type: 2}
 --- !u!1 &1510476259
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,7 +4106,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  pickupSfx: {fileID: 11400000, guid: 1a5ff400f05d5294e9d99955ba676216, type: 2}
+  pickupSfxEvent: {fileID: 11400000, guid: 6c9776fd5dde27442947a9b3c9db13ff, type: 2}
 --- !u!1 &1829033104
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,11 +3,16 @@ using UnityEngine;
 public class PlayerDamage : MonoBehaviour
 {
     public LayerMask enemyMask;
+
+    [SerializeField]
+    private SFXEvent damageSfxEvent;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (((1 << other.gameObject.layer) & enemyMask) != 0)
         {
             DamageEcho();
+            damageSfxEvent.Raise();
         }
     }
 
@@ -18,6 +23,5 @@ public class PlayerDamage : MonoBehaviour
         // pass this to StateController to see if Echo should start game over
         // since both state StateController and EchoStateController are on the same gameobject, it's ok to cross-refer between scripts
         GetComponent<EchoStateController>().SetPowerup(PowerupType.Damage);
-
     }
 }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143f07a217fa3e14f933df132a9cee0c, type: 3}
   m_Name: VoidPowerUpSFXEvent
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 11400000, guid: dcf9bd7c4d15f7a47aff29e356bbc88e, type: 2}
