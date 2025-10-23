@@ -6,18 +6,22 @@ public class VoidPowerup : MonoBehaviour
     public UnityEvent enableVoid;
     private string playerLayerName = "Player";
 
+    [SerializeField]
+    private SFXEvent pickupSfxEvent;
+
     public void OnTriggerEnter2D(Collider2D player)
     {
         if (player.gameObject.layer == LayerMask.NameToLayer(playerLayerName))
         {
             enableVoid.Invoke();
-            OnEnableVoid();
+            OnEnableVoid(player.transform);
         }
     }
 
-    public void OnEnableVoid()
+    public void OnEnableVoid(Transform playerTransform)
     {
-        // TODO: Add SFX
+        pickupSfxEvent.Raise();
+
         gameObject.SetActive(false);
     }
 }

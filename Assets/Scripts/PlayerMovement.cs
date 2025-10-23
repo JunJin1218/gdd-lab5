@@ -14,15 +14,30 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     public GameVariables gameVariables;
     public PlayerPosition playerPosition;
-    [NonSerialized] public float accelX = 20f;
-    [NonSerialized] public float decelX = 40f;
-    [NonSerialized] public float maxSpeedX = 20f;
-    [NonSerialized] public float jumpForce = 8f;
-    [NonSerialized] public float attackForce = 10f;
-    [NonSerialized] public float groundCheckDistance = 0.1f;
-    [NonSerialized] public float dashForce = 4f;
 
-    [NonSerialized] public bool dashAvailable = false;
+    [NonSerialized]
+    public float accelX = 20f;
+
+    [NonSerialized]
+    public float decelX = 40f;
+
+    [NonSerialized]
+    public float maxSpeedX = 20f;
+
+    [NonSerialized]
+    public float jumpForce = 8f;
+
+    [NonSerialized]
+    public float attackForce = 10f;
+
+    [NonSerialized]
+    public float groundCheckDistance = 0.1f;
+
+    [NonSerialized]
+    public float dashForce = 4f;
+
+    [NonSerialized]
+    public bool dashAvailable = false;
 
     // PRIVATE
     private Rigidbody2D rb;
@@ -41,12 +56,14 @@ public class PlayerMovement : MonoBehaviour
     private bool dashPressed = false;
     private StateController stateController;
 
-    // SFX
-
-    private AudioSource ad;
+    [SerializeField]
+    private SFXEvent jumpSfxEvent;
 
     [SerializeField]
-    private AudioClip dashClip;
+    private SFXEvent dashSfxEvent;
+
+    [SerializeField]
+    private SFXEvent bgmEvent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
         cd = gameObject.GetComponent<Collider2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
-        ad = gameObject.GetComponent<AudioSource>();
 
         accelX = gameVariables.PlayerAccelX;
         decelX = gameVariables.PlayerDecelX;
@@ -67,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
         dashForce = gameVariables.PlayerDashForce;
 
         stateController = GetComponent<EchoStateController>();
+
+        bgmEvent.Raise();
     }
 
     // Update is called once per frame
@@ -93,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // TODO
     }
+
     void FixedUpdate()
     {
         // Movement (x axis)
@@ -109,7 +128,8 @@ public class PlayerMovement : MonoBehaviour
         if (jumpPressed && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            // ad.Play();
+
+            jumpSfxEvent.Raise();
             jumpPressed = false;
             extraJumpAvailable = true;
             fallingAttackAvailable = true;
@@ -130,10 +150,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Dash
-        if (dashPressed && (stateController.currentState.name == "Dash" || stateController.currentState.name == "Void"))
+        if (
+            dashPressed
+            && (
+                stateController.currentState.name == "Dash"
+                || stateController.currentState.name == "Void"
+            )
+        )
         {
             rb.AddForce(dir * Vector2.right * dashForce, ForceMode2D.Impulse);
-            // ad.PlayOneShot(dashClip);
+
+            dashSfxEvent.Raise();
+
             dashPressed = false;
         }
     }
@@ -203,6 +231,4 @@ public class PlayerMovement : MonoBehaviour
     {
         GetComponent<EchoStateController>().SetPowerup(PowerupType.Dash);
     }
-
 }
-
